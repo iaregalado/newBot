@@ -22,7 +22,7 @@ module.exports = function(robot) {
 
   robot.respond(/add (.*) (.*) (.*)/i, function(msg) {
   var firstNumber;
-  var secondNumber
+  var secondNumber;
 
   firstNumber = msg.match[1];
   secondNumber = msg.match[3];
