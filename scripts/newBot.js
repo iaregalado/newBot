@@ -20,14 +20,16 @@
 
 module.exports = function(robot) {
 
-  robot.respond(/I love (.*)/i, function(msg) {
-  var name;
-  name = msg.match[1];
-  if (name == "javascript"){
-    return msg.send("JS rulezzzz!");
-  } else {
-    return msg.reply("Nice to meet you, " + name + "!");
-  }
+  robot.respond(/add (.*) (.*) (.*)/i, function(msg) {
+  var firstNumber;
+  var secondNumber
+
+  firstNumber = msg.match[1];
+  secondNumber = msg.match[3];
+
+  var total = firstNumber + secondNumber;
+
+  return res.send("Adding " + firstNumber + " and " + secondNumber + " equals " + counter);
 
 });
   //  YOUR CODE HERE
