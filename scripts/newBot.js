@@ -15,23 +15,44 @@
 //
 //
 // Author:
-// <github username of the original script author>
+// Ivan Regalado
 //
 
 module.exports = function(robot) {
 
-  robot.respond(/add (.*) (.*) (.*)/i, function(msg) {
-  var firstNumber;
-  var secondNumber;
+//add
 
-  firstNumber = msg.match[1];
-  secondNumber = msg.match[3];
+  robot.respond(/(.*) (.*) (.*) (.*)/i, function(msg) {
+  var calc = msg.match[1];
+  console.log(calc);
+  var firstNumber = 0;
+  var secondNumber = 0;
+  
+  firstNumber = parseInt(msg.match[2]);
+  console.log(firstNumber);
+  secondNumber = parseInt(msg.match[4]);
+  console.log(secondNumber);
 
-  var total = firstNumber + secondNumber;
+  if(calc === 'add'){
+    var total = firstNumber + secondNumber;
+    return msg.reply("Adding " + firstNumber + " and " + secondNumber + " equals " + total);
+  } else if (calc === 'subtract'){
+    var total = secondNumber - firstNumber;
+    return msg.reply("Subtracting " + firstNumber + " from " + secondNumber + " equals " + total);
+  } else if (calc === 'multiply'){
+    var total = firstNumber * secondNumber;
+    return msg.reply("Multiplying " + firstNumber + " and " + secondNumber + " equals " + total);
+  } else if (calc === 'divide'){
+    var total = firstNumber / secondNumber;
+    return msg.reply("Dividing " + firstNumber + " by " + secondNumber + " equals " + total);
+  }
 
-  return res.send("Adding " + firstNumber + " and " + secondNumber + " equals " + counter);
+  console.log(total);
 
-});
+  //return msg.reply("Adding " + firstNumber + " and " + secondNumber + " equals " + total);
+
+  });
+
   //  YOUR CODE HERE
   //  Example
 //    robot.respond(/I like (.*)/i, function(msg) {
@@ -44,10 +65,16 @@ module.exports = function(robot) {
 //      }  
 //    });
 
-robot.hear(/swearJar/, function(res) {
-  var counter = 0;
-  counter = counter + 5;
-  return res.send("Hi there, I'm keeping track of your swear words! The total tally is $" + counter);
+robot.hear(/(.*)/i, function(msg) {
+  var swearWord = msg.match[1];
+  console.log(swearWord);
+  var swearJar = ["buck", "bucking"];
+  
+  for(i = 0; i < swearJar.length; i++){
+    if(swearWord === swearJar[i]){
+      return msg.reply("Hi there, we don't like to cuss here!");
+    }
+  }
 });
 
 }
