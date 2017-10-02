@@ -44,7 +44,7 @@ module.exports = function(robot) {
 
 robot.hear(/swearJar/, function(res) {
   var counter = 0;
-  counter = counter++;
+  counter = counter + 5;
   return res.send("Hi there, I'm keeping track of your swear words! The total tally is $" + counter);
 });
 
