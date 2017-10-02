@@ -41,6 +41,11 @@ module.exports = function(robot) {
 //        return msg.send("I love eating!");
 //      }  
 //    });
+
+robot.hear(/Hello!/, function(res) {
+  return res.send("Hi there!");
+});
+
 }
 
 /************************************
