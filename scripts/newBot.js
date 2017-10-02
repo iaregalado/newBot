@@ -42,8 +42,8 @@ module.exports = function(robot) {
 //      }  
 //    });
 
-robot.hear(/Hello!/, function(res) {
-  return res.send("Hi there!");
+robot.hear(/I need help!/, function(res) {
+  return res.send("Hi there, although I'd like to help with many things, my creator only designed me to help with math!  Would you like to add, subtract, multiply, or divide?");
 });
 
 }
