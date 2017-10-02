@@ -42,8 +42,10 @@ module.exports = function(robot) {
 //      }  
 //    });
 
-robot.hear(/I need help!/, function(res) {
-  return res.send("Hi there, although I'd like to help with many things, my creator only designed me to help with math!  Would you like to add, subtract, multiply, or divide?");
+robot.hear(/swearJar/, function(res) {
+  var counter;
+  counter = counter++;
+  return res.send("Hi there, I'm keeping track of your swear words! The total tally is $" + counter);
 });
 
 }
